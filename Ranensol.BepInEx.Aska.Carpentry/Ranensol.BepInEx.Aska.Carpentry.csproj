@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<!-- Target Framework & Language -->
+		<TargetFramework>net6.0</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+		<!-- Assembly Identity -->
+		<AssemblyName>Ranensol.BepInEx.Aska.Carpentry</AssemblyName>
+		<RootNamespace>Ranensol.BepInEx.Aska.Carpentry</RootNamespace>
+		<Product>Ranensol Carpentry</Product>
+
+		<!-- Versioning -->
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<FileVersion>$(AssemblyVersion)</FileVersion>
+		<Version>$(AssemblyVersion)</Version>
+	</PropertyGroup>
+
+	<!-- Import game paths configuration -->
+	<Import Project="GamePaths.props" Condition="Exists('GamePaths.props')" />
+
+	<ItemGroup>
+		<!-- Core BepInEx framework for IL2CPP Unity games - provides BasePlugin, Config system, logging -->
+		<!-- Also automatically includes: HarmonyX, Il2CppInterop.Runtime, and other dependencies -->
+		<PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.738" />
+
+		<!-- Auto-generates MyPluginInfo.PLUGIN_GUID/NAME/VERSION from project properties -->
+		<PackageReference Include="BepInEx.PluginInfoProps" Version="2.1.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Main game code - contains all SSSGame namespace types (CraftBlueprintInfo, ItemInfo, etc.) -->
+		<Reference Include="Assembly-CSharp">
+			<HintPath>$(AskaInteropPath)\Assembly-CSharp.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		
+		<!-- Game's core systems - contains SandSailorStudio.Inventory namespace (ItemInfoQuantity, BlueprintConditionsRule, etc.) -->
+		<Reference Include="SandSailorStudio">
+			<HintPath>$(AskaInteropPath)\SandSailorStudio.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		
+		<!-- Unity engine core - provides ScriptableObject, Resources, GameObject, Transform, etc. -->
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath>$(AskaInteropPath)\UnityEngine.CoreModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+
+		<!-- IL2CPP version of basic .NET types - needed for IL2CPP interop with standard library -->
+		<Reference Include="Il2Cppmscorlib">
+			<HintPath>$(AskaInteropPath)\Il2Cppmscorlib.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+
+		<!-- IL2CPP System.Core types - provides Il2CppSystem.Collections.Generic.List<T> and Dictionary<T> -->
+		<!-- Required because blueprints use IL2CPP collection types instead of regular C# collections -->
+		<Reference Include="Il2CppSystem.Core">
+			<HintPath>$(AskaInteropPath)\Il2CppSystem.Core.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+
+	</ItemGroup>
+</Project>
