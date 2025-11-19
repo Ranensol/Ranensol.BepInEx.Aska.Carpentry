@@ -40,18 +40,18 @@ Other than that there's nothing needed in game, it'll work as normal.
 
 ### Prerequisites
 
-1. **Install BepInEx 6 (IL2CPP)** if you haven't already:
+**Install BepInEx 6 (IL2CPP)** if you haven't already:
    - Download the latest **IL2CPP** build from [BepInEx builds](https://builds.bepinex.dev/projects/bepinex_be)
    - Extract the contents to your ASKA game folder (where `ASKA.exe` is located)
    - Launch the game once to initialize BepInEx, then close it
 
 ### Installing the Mod
 
-2. **Download this mod** from the [Releases](../../releases) page
-3. **Extract** the DLL to `BepInEx/plugins/` folder
-4. **Launch the game** - a config file will be generated automatically
-5. **Edit the config** at `BepInEx/config/com.ranensol.aska.carpenter.cfg`
-6. **Restart the game** for changes to take effect
+1. **Download this mod** from the [Releases](../../releases) page
+2. **Extract** the DLL to `BepInEx/plugins/` folder
+3. **Launch the game** - a config file will be generated automatically
+4. **Edit the config** at `BepInEx/config/com.ranensol.aska.carpenter.cfg`
+5. **Restart the game** for changes to take effect
 
 Your folder structure should look like:
 ```
