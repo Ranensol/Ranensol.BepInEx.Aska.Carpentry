@@ -50,7 +50,7 @@ Other than that there's nothing needed in game, it'll work as normal.
 1. **Download this mod** from the [Releases](../../releases) page
 2. **Extract** the DLL to `BepInEx/plugins/` folder
 3. **Launch the game** - a config file will be generated automatically
-4. **Edit the config** at `BepInEx/config/com.ranensol.aska.carpenter.cfg`
+4. **Edit the config** at `BepInEx/config/Ranensol.BepInEx.Aska.Carpentry.cfg`
 5. **Restart the game** for changes to take effect
 
 Your folder structure should look like:
